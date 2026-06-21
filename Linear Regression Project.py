@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+import joblib
 
 customers = pd.read_csv('Ecommerce Customers')
 
@@ -52,5 +53,9 @@ plt.show()
 coefficients = pd.DataFrame(lm.coef_, X.columns, columns=['Coefficient'])
 print("\n--- Model Coefficients ---")
 print(coefficients)
+joblib.dump(lm, 'Linear regression_model.pkl')
+print("Model saved!")
+
+
 
 
